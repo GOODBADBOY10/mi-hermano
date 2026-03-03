@@ -5,9 +5,9 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Names */}
         <div className="mb-6">
-          <span className="font-display text-4xl text-white/20">James</span>
+          <span className="font-display text-4xl text-white/20">Abdul-Hakeem</span>
           <span className="font-serif text-2xl text-gold-500/30 italic mx-3">&</span>
-          <span className="font-display text-4xl text-white/20">Eleanor</span>
+          <span className="font-display text-4xl text-white/20">Ruqayyah</span>
         </div>
 
         {/* Ornament */}
