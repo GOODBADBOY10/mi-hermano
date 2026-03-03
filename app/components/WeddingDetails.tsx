@@ -10,8 +10,8 @@ const details = [
       </svg>
     ),
     label: 'Date',
-    value: 'Saturday, April 12',
-    sub: '2025',
+    value: 'Saturday, July 12',
+    sub: '2026',
   },
   {
     icon: (
@@ -21,8 +21,8 @@ const details = [
       </svg>
     ),
     label: 'Ceremony',
-    value: '2:00 PM',
-    sub: 'Reception from 5:00 PM',
+    value: '10:00 AM',
+    sub: 'Reception from 2:00 PM',
   },
   {
     icon: (
@@ -32,8 +32,8 @@ const details = [
       </svg>
     ),
     label: 'Venue',
-    value: 'The Grand Pavilion',
-    sub: 'Victoria Island, Lagos',
+    value: 'Ede Grammar School',
+    sub: 'Ede, Osun',
   },
   {
     icon: (
@@ -42,7 +42,7 @@ const details = [
       </svg>
     ),
     label: 'Dress Code',
-    value: 'Black Tie',
+    value: 'Magenta',
     sub: 'Formal & elegant attire',
   },
 ]
@@ -107,12 +107,12 @@ export default function WeddingDetails() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { time: '1:30 PM', event: 'Guest Arrival & Welcome Drinks', type: 'Foyer, Grand Pavilion' },
-              { time: '2:00 PM', event: 'Wedding Ceremony', type: 'Main Hall' },
-              { time: '3:00 PM', event: 'Couple Photos & Cocktail Hour', type: 'Garden Terrace' },
-              { time: '5:00 PM', event: 'Reception Doors Open', type: 'Ballroom, Level 2' },
-              { time: '6:00 PM', event: 'Dinner & Speeches', type: 'Ballroom' },
-              { time: '8:00 PM', event: 'First Dance & Evening Party', type: 'Dance Floor Opens' },
+              { time: '9:00 AM', event: 'Guest Arrival & Welcome Drinks', type: 'Foyer, Grand Pavilion' },
+              { time: '11:00 AM', event: 'Wedding Ceremony', type: 'Main Field' },
+              { time: '1:00 PM', event: 'Couple Photos & Cocktail Hour', type: 'Garden Terrace' },
+              { time: '2:00 PM', event: 'Reception Doors Open', type: 'Ballroom, Level 2' },
+              { time: '5:00 PM', event: 'Dinner & Speeches', type: 'Ballroom' },
+              { time: '6:00 PM', event: 'First Dance & Evening Party', type: 'Dance Floor Opens' },
             ].map((item) => (
               <div key={item.time} className="flex items-start gap-5 py-4 border-b border-white/5 last:border-0">
                 <span className="font-sans text-xs tracking-wider text-gold-500/70 w-16 shrink-0 pt-0.5">
@@ -135,7 +135,7 @@ export default function WeddingDetails() {
           >
             <span className="text-lg">✦</span>
             <p className="font-sans text-xs tracking-widest uppercase">
-              Dress Code: Black Tie — Formal Evening Wear Required
+              Dress Code: Magenta — Formal Evening Wear Required
             </p>
             <span className="text-lg">✦</span>
           </div>

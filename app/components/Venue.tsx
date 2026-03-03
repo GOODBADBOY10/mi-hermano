@@ -45,21 +45,21 @@ export default function Venue() {
           {/* Venue info */}
           <div className="fade-up space-y-8">
             <div className="border border-gold-500/20 bg-navy-800/30 p-8" style={{ backdropFilter: 'blur(10px)' }}>
-              <h3 className="font-display text-3xl text-white mb-2">The Grand Pavilion</h3>
+              <h3 className="font-display text-3xl text-white mb-2">Ede Grammar School</h3>
               <p className="font-sans text-xs tracking-widest uppercase text-gold-500/60 mb-6">
-                Victoria Island, Lagos, Nigeria
+                Ede, Osun, Nigeria
               </p>
               <p className="font-serif text-white/50 leading-relaxed mb-6">
-                Nestled in the heart of Victoria Island, The Grand Pavilion is a stunning event space
+                Nestled in the heart of Ede, Osun State, The Grand Pavilion is a stunning event space
                 featuring high ceilings, crystal chandeliers, and sweeping views of the Lagos waterfront.
                 The perfect setting for a night to remember.
               </p>
 
               <div className="space-y-3">
                 {[
-                  { icon: '📍', label: '14 Kofo Abayomi Street, Victoria Island, Lagos' },
-                  { icon: '🚗', label: 'Valet parking available on arrival' },
-                  { icon: '🏨', label: 'Hotel block reserved at Eko Hotel (5 min away)' },
+                  { icon: '📍', label: '14 Kofo Abayomi Street, Ede, Osun State' },
+                  { icon: '🚗', label: 'Parking available on arrival' },
+                  { icon: '🏨', label: 'Hotel block reserved at Ede Hotel (5 min away)' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3">
                     <span className="text-base mt-0.5">{item.icon}</span>
@@ -89,9 +89,9 @@ export default function Venue() {
               <h4 className="font-display text-lg text-emerald-light mb-4">Getting There</h4>
               <div className="space-y-3">
                 {[
-                  { mode: 'By Car', desc: 'From Ikeja: Take the Lagos-Badagry Expressway to Victoria Island (approx. 45 min).' },
-                  { mode: 'By Ride-Hailing', desc: 'Bolt and Uber both service Victoria Island. Show driver: The Grand Pavilion, Kofo Abayomi.' },
-                  { mode: 'By Boat', desc: 'Water taxi from Five Cowries Terminal to VI Marina — scenic and quick!' },
+                  { mode: 'By Car', desc: 'From Osogbo: Take the Osogbo-Ede Expressway to Ede (approx. 45 min).' },
+                  { mode: 'By Ride-Hailing', desc: 'Bolt and Uber both service Ede. Show driver: Ede Grammar School.' },
+                  // { mode: 'By Boat', desc: 'Water taxi from Five Cowries Terminal to Ede Grammar School — scenic and quick!' },
                 ].map((item) => (
                   <div key={item.mode}>
                     <span className="font-sans text-xs tracking-wider uppercase text-gold-500/60">{item.mode} — </span>
