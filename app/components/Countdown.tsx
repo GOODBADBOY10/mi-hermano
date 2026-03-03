@@ -82,7 +82,7 @@ export default function Countdown() {
         </div>
 
         <p className="mt-12 font-sans text-xs tracking-[0.3em] uppercase text-white/30">
-          April 12, 2026 · 2:00 PM
+          July 12, 2026 · 10:00 AM
         </p>
       </div>
     </section>
