@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-const WEDDING_DATE = new Date('2025-04-12T14:00:00')
+const WEDDING_DATE = new Date('2026-07-12T10:00:00')
 
 function pad(n: number) {
   return String(n).padStart(2, '0')
@@ -82,7 +82,7 @@ export default function Countdown() {
         </div>
 
         <p className="mt-12 font-sans text-xs tracking-[0.3em] uppercase text-white/30">
-          April 12, 2025 · 2:00 PM
+          April 12, 2026 · 2:00 PM
         </p>
       </div>
     </section>
