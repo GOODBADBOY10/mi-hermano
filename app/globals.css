@@ -6,6 +6,7 @@
   --navy-800: #071428;
   --magenta-400: #e040a0;
   --magenta-500: #c0257d;
+  --magenta-950: #2b001c;
   --emerald: #1a6b4a;
 }
 
@@ -18,7 +19,9 @@ html {
 }
 
 body {
-  background-color: var(--navy-950);
+  /* background-color: var(--magenta-500); */
+  background-color: var(--magenta-950);
+  /* background-color: var(--navy-950); */
   color: #f5f0e8;
   overflow-x: hidden;
 }

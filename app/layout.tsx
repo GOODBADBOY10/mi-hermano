@@ -21,18 +21,18 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
-  title: 'James & Eleanor - April 2025',
-  description: 'Join us as we celebrate our wedding day. April 12, 2025.',
+  title: 'AbdulHakeem- & Ruqayyah - July 2026',
+  description: 'Join us as we celebrate our wedding day. July 12, 2026.',
   openGraph: {
-    title: 'James & Eleanor are getting married!',
-    description: 'Join us to celebrate our special day - April 12, 2025',
+    title: 'AbdulHakeem & Ruqayyah are getting married!',
+    description: 'Join us to celebrate our special day - July 12, 2026',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${cormorant.variable} ${playfair.variable} ${jost.variable} bg-navy-950`}>
+      <body className={`${cormorant.variable} ${playfair.variable} ${jost.variable}`}>
         {children}
       </body>
     </html>
