@@ -192,14 +192,6 @@ export async function POST(req: NextRequest) {
         const body = await req.json()
         const { name, email, guests, attendance, meal, song, message } = body
 
-        console.log('Body received:', body)
-        console.log('ENV CHECK:', {
-            resend: !!process.env.RESEND_API_KEY,
-            sheetId: !!process.env.GOOGLE_SHEET_ID,
-            serviceEmail: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            privateKey: !!process.env.GOOGLE_PRIVATE_KEY,
-        })
-
         // Validate required fields
         if (!name || !email || !attendance) {
             return NextResponse.json(
