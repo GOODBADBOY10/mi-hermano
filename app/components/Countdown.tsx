@@ -23,18 +23,18 @@ function Unit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center">
       <div
-        className="relative w-24 h-24 md:w-32 md:h-32 border border-gold-500/30 flex items-center justify-center gold-glow bg-navy-800/60"
+        className="relative w-12 h-12 sm:w-20 sm:h-20 md:w-32 md:h-32 border border-gold-500/30 flex items-center justify-center gold-glow bg-navy-800/60"
         style={{ backdropFilter: 'blur(10px)' }}
       >
-        <div className="absolute top-1.5 left-1.5 w-1 h-1 bg-gold-500/60 rounded-full" />
-        <div className="absolute top-1.5 right-1.5 w-1 h-1 bg-gold-500/60 rounded-full" />
-        <div className="absolute bottom-1.5 left-1.5 w-1 h-1 bg-gold-500/60 rounded-full" />
-        <div className="absolute bottom-1.5 right-1.5 w-1 h-1 bg-gold-500/60 rounded-full" />
-        <span className="font-display text-4xl md:text-5xl text-gold-400 font-light">
+        <div className="absolute top-1 left-1 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-gold-500/60 rounded-full" />
+        <div className="absolute top-1 right-1 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-gold-500/60 rounded-full" />
+        <div className="absolute bottom-1 left-1 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-gold-500/60 rounded-full" />
+        <div className="absolute bottom-1 right-1 w-0.5 h-0.5 sm:w-1 sm:h-1 bg-gold-500/60 rounded-full" />
+        <span className="font-display text-lg sm:text-3xl md:text-5xl text-gold-400 font-light">
           {value}
         </span>
       </div>
-      <span className="mt-3 font-sans text-[10px] tracking-[0.3em] uppercase text-white/40">
+      <span className="mt-1.5 sm:mt-3 font-sans text-[7px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.3em] uppercase text-white/40">
         {label}
       </span>
     </div>
@@ -42,11 +42,9 @@ function Unit({ value, label }: { value: string; label: string }) {
 }
 
 export default function Countdown() {
-  // null = not mounted yet, avoids server/client mismatch
   const [time, setTime] = useState<ReturnType<typeof getTimeLeft> | null>(null)
 
   useEffect(() => {
-    // Only start counting after client mounts
     setTime(getTimeLeft())
     const interval = setInterval(() => setTime(getTimeLeft()), 1000)
     return () => clearInterval(interval)
@@ -60,29 +58,29 @@ export default function Countdown() {
   }
 
   return (
-    <section className="py-28 relative" style={{ background: 'linear-gradient(180deg, #020B18 0%, #040f1e 50%, #020B18 100%)' }}>
-      <div className="ornament max-w-2xl mx-auto px-6 mb-16">
+    <section className="py-20 sm:py-28 relative" style={{ background: 'linear-gradient(180deg, #020B18 0%, #040f1e 50%, #020B18 100%)' }}>
+      <div className="ornament max-w-2xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16">
         <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold-500/60">
           Counting Down
         </span>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <p className="font-serif text-lg md:text-xl text-white/40 italic mb-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <p className="font-serif text-base sm:text-lg md:text-xl text-white/40 italic mb-8 sm:mb-12">
           The big day arrives in...
         </p>
 
-        <div className="flex items-center justify-center gap-4 md:gap-8">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-4 md:gap-8">
           <Unit value={display.days} label="Days" />
-          <span className="font-display text-3xl text-gold-500/40 mb-8">:</span>
+          <span className="font-display text-base sm:text-3xl text-gold-500/40 mb-5 sm:mb-8">:</span>
           <Unit value={display.hours} label="Hours" />
-          <span className="font-display text-3xl text-gold-500/40 mb-8">:</span>
+          <span className="font-display text-base sm:text-3xl text-gold-500/40 mb-5 sm:mb-8">:</span>
           <Unit value={display.minutes} label="Minutes" />
-          <span className="font-display text-3xl text-gold-500/40 mb-8">:</span>
+          <span className="font-display text-base sm:text-3xl text-gold-500/40 mb-5 sm:mb-8">:</span>
           <Unit value={display.seconds} label="Seconds" />
         </div>
 
-        <p className="mt-12 font-sans text-xs tracking-[0.3em] uppercase text-white/30">
+        <p className="mt-8 sm:mt-12 font-sans text-xs tracking-[0.3em] uppercase text-white/30">
           July 12, 2026 &middot; 10:00 AM
         </p>
       </div>
