@@ -6,6 +6,7 @@ import WeddingDetails from './components/WeddingDetails'
 import Gallery from './components/Gallery'
 import Venue from './components/Venue'
 import RSVP from './components/RSVP'
+import Gifts from './components/Gifts'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Gallery />
       <Venue />
       <RSVP />
+      <Gifts />
       <FAQ />
       <Footer />
     </main>
