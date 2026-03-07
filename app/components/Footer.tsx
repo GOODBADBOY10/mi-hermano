@@ -17,7 +17,7 @@ export default function Footer() {
           &quot;You are my today and all of my tomorrows.&quot;
         </p>
         <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-white/55">
-          July 12, 2026 &middot; Osun, Nigeria
+          June 06, 2026 &middot; Osun, Nigeria
         </p>
 
         <p className="font-sans text-[10px] tracking-wider text-white/70 mt-10 uppercase">

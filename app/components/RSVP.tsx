@@ -78,7 +78,7 @@ export default function RSVP() {
             <span className="gold-shimmer">RSVP</span>
           </h2>
           <p className="font-serif text-white/40 italic text-base sm:text-lg">
-            Kindly respond by June 20, 2026
+            Kindly respond by May 26, 2026
           </p>
         </div>
 

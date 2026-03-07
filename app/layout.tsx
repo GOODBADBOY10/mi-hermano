@@ -21,11 +21,11 @@ const jost = Jost({
 })
 
 export const metadata: Metadata = {
-  title: 'AbdulHakeem- & Ruqayyah - July 2026',
-  description: 'Join us as we celebrate our wedding day. July 12, 2026.',
+  title: 'AbdulHakeem- & Ruqayyah - June 2026',
+  description: 'Join us as we celebrate our wedding day. June 06, 2026.',
   openGraph: {
     title: 'AbdulHakeem & Ruqayyah are getting married!',
-    description: 'Join us to celebrate our special day - July 12, 2026',
+    description: 'Join us to celebrate our special day - June 06, 2026',
   },
 }
 

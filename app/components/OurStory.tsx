@@ -27,7 +27,7 @@ const story = [
     icon: '<>',
   },
   {
-    year: '2025',
+    year: '2026',
     title: 'Forever Starts Here',
     body: "After all the planning, the laughs, the late nights and early mornings - it all leads to this one perfect day. We can't wait to celebrate with everyone who made us who we are.",
     icon: 'x',
