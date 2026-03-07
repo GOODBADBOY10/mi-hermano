@@ -79,7 +79,7 @@ async function sendConfirmationEmail(data: {
                     James &amp; Eleanor
                   </h1>
                   <p style="margin:12px 0 0;font-family:Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);">
-                    April 12, 2025
+                    June 06, 2026
                   </p>
                 </td>
               </tr>
@@ -107,7 +107,7 @@ async function sendConfirmationEmail(data: {
                           <tr>
                             <td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
                               <span style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(212,168,67,0.6);">Date</span><br>
-                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">Saturday, April 12, 2025</span>
+                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">Saturday, June 06, 2026</span>
                             </td>
                           </tr>
                           <tr>
@@ -163,7 +163,7 @@ async function sendConfirmationEmail(data: {
               <tr>
                 <td align="center" style="padding:24px 40px;border-top:1px solid rgba(212,168,67,0.15);">
                   <p style="margin:0;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);">
-                    April 12, 2025 &nbsp;&middot;&nbsp; Lagos, Nigeria
+                    June 06, 2026 &nbsp;&middot;&nbsp; Osun, Nigeria
                   </p>
                 </td>
               </tr>
