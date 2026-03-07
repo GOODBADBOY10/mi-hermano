@@ -128,7 +128,7 @@ export default function Hero() {
           className="font-display text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] leading-none tracking-tight"
           style={{ animation: 'fadeUp 1s ease 0.8s both' }}
         >
-          <span className="gold-shimmer">Ruqayyah</span>
+          <span className="gold-shimmer">Soliha</span>
         </h1>
 
         <div

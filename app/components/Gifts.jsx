@@ -9,10 +9,10 @@ const accounts = [
     accountName: 'Adebisi Abdul-Hakeem Adeniyi',
   },
   {
-    name: 'Ruqayyah',
+    name: 'Soliha',
     bank: 'GTBank',
     accountNumber: '0123456789',
-    accountName: 'Ruqayyah Adeyemi',
+    accountName: 'Soliha Adeyemi',
   },
 ]
 

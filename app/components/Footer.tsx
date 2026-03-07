@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-0">
           <span className="font-display text-3xl sm:text-4xl text-white/60">Abdul-Hakeem</span>
           <span className="font-serif text-xl sm:text-2xl text-[#c0257d]/80 italic sm:mx-3">&amp;</span>
-          <span className="font-display text-3xl sm:text-4xl text-white/60">Ruqayyah</span>
+          <span className="font-display text-3xl sm:text-4xl text-white/60">Soliha</span>
         </div>
 
         <div className="ornament max-w-sm mx-auto mb-6">

@@ -5,7 +5,7 @@ const story = [
   {
     year: '2018',
     title: 'First Meeting',
-    body: "It was a rainy Tuesday evening at a mutual friend's dinner party in Lagos. James arrived late, Eleanor was already there - and somehow, by the end of the night, they'd talked until midnight, long after everyone else had left.",
+    body: "It was a rainy Tuesday evening at a mutual friend's dinner party in Lagos. Abdul-Hakeem arrived late, Soliha was already there - and somehow, by the end of the night, they'd talked until midnight, long after everyone else had left.",
     icon: '*',
   },
   {

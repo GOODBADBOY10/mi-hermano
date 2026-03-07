@@ -29,7 +29,7 @@ export default function Navbar() {
         <a href="#hero" className="flex items-center gap-2 group shrink-0">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#c0257d]/60 flex items-center justify-center
             group-hover:border-[#e040a0] transition-colors">
-            <span className="font-display text-[#e040a0] text-xs sm:text-sm font-semibold tracking-widest">A&amp;R</span>
+            <span className="font-display text-[#e040a0] text-xs sm:text-sm font-semibold tracking-widest">A&amp;S</span>
           </div>
         </a>
 

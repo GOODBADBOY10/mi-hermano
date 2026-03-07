@@ -177,12 +177,12 @@ async function sendConfirmationEmail(data: {
   `
 
     await resend.emails.send({
-        from: 'Abdul-Hakeem & Ruqayyah <onboarding@resend.dev>',
+        from: 'Abdul-Hakeem & Soliha <onboarding@resend.dev>',
         to: process.env.RESEND_TEST_EMAIL!,
         // to: data.email,
         subject: isAttending
-            ? 'Your RSVP is confirmed - Abdul-Hakeem & Ruqayyah'
-            : 'We will miss you - Abdul-Hakeem & Ruqayyah',
+            ? 'Your RSVP is confirmed - Abdul-Hakeem & Soliha'
+            : 'We will miss you - Abdul-Hakeem & Soliha',
         html,
     })
 }
