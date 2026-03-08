@@ -76,7 +76,7 @@ async function sendConfirmationEmail(data: {
                     ${isAttending ? 'See You There' : 'We Understand'}
                   </p>
                   <h1 style="margin:0;font-family:Georgia,serif;font-size:48px;color:#d4a843;font-weight:400;letter-spacing:2px;">
-                    James &amp; Eleanor
+                    Abdul-Hakeem &amp; Soliha
                   </h1>
                   <p style="margin:12px 0 0;font-family:Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);">
                     June 06, 2026
@@ -119,13 +119,13 @@ async function sendConfirmationEmail(data: {
                           <tr>
                             <td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
                               <span style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(212,168,67,0.6);">Venue</span><br>
-                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">The Grand Pavilion, Victoria Island, Lagos</span>
+                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">Ede Grammar School, Ede, Osun State</span>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
                               <span style="font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(212,168,67,0.6);">Dress Code</span><br>
-                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">Black Tie</span>
+                              <span style="font-size:15px;color:rgba(255,255,255,0.8);">Agbada</span>
                             </td>
                           </tr>
                           ${data.meal ? `
@@ -154,7 +154,7 @@ async function sendConfirmationEmail(data: {
 
                   <p style="margin:32px 0 0;font-size:16px;color:rgba(255,255,255,0.5);font-style:italic;line-height:1.8;">
                     With love,<br>
-                    <span style="color:#d4a843;">James &amp; Eleanor</span>
+                    <span style="color:#d4a843;">Abdul-Hakeem &amp; Soliha</span>
                   </p>
                 </td>
               </tr>

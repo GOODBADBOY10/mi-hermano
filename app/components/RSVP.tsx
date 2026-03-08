@@ -11,8 +11,148 @@ type FormData = {
   message: string
 }
 
-const meals = ['Grilled Beef & Truffle Sauce', 'Pan-Seared Sea Bass', 'Vegetarian Wellington', 'Jollof Rice & Chicken (Nigerian)']
+const meals = ['Jollof Rice', 'Fried Rice', 'Semo & Ewedu', 'Amala and Gbegiri']
 
+// ─── IV Card Generator ────────────────────────────────────────────────────────
+async function downloadIVCard(form: FormData) {
+  // Dynamically import to keep bundle lean
+  const jsPDFModule = await import('jspdf')
+  const jsPDF = jsPDFModule.default
+
+  const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [148, 105] })
+  const W = 148
+  const H = 105
+
+  const centeredText = (text: string, y: number, charSpace: number) => {
+    doc.setCharSpace(charSpace)
+    doc.text(text, (W / 2) - (text.length * charSpace) / 2, y, { align: 'center' })
+    doc.setCharSpace(0)
+  }
+
+  // ── Background ──
+  doc.setFillColor(2, 11, 24) // deep navy
+  doc.rect(0, 0, W, H, 'F')
+
+  // ── Decorative border (outer) ──
+  doc.setDrawColor(192, 37, 125)
+  doc.setLineWidth(0.4)
+  doc.rect(4, 4, W - 8, H - 8)
+
+  // ── Decorative border (inner thin) ──
+  doc.setDrawColor(192, 37, 125, 0.3)
+  doc.setLineWidth(0.15)
+  doc.rect(6, 6, W - 12, H - 12)
+
+  // ── Corner ornaments ──
+  const corners = [[8, 8], [W - 8, 8], [8, H - 8], [W - 8, H - 8]]
+  doc.setDrawColor(192, 37, 125)
+  doc.setLineWidth(0.5)
+  corners.forEach(([x, y]) => {
+    const s = 4
+    const dx = x < W / 2 ? 1 : -1
+    const dy = y < H / 2 ? 1 : -1
+    doc.line(x, y, x + dx * s, y)
+    doc.line(x, y, x, y + dy * s)
+  })
+
+  // Header label
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(6)
+  doc.setTextColor(192, 37, 125)
+  centeredText('YOU ARE CORDIALLY INVITED', 18, 3)
+
+  // Subtitle
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(6.5)
+  doc.setTextColor(192, 37, 125)
+  centeredText('WEDDING CELEBRATION', 40, 2)
+
+  // Guest label
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(6)
+  doc.setTextColor(255, 255, 255, 0.45)
+  centeredText('GUEST', 51, 2)
+
+  // ── Divider line ──
+  doc.setDrawColor(192, 37, 125)
+  doc.setLineWidth(0.2)
+  doc.line(W / 2 - 20, 21, W / 2 + 20, 21)
+
+  // ── Couple names (display) ──
+  doc.setFont('times', 'italic')
+  doc.setFontSize(22)
+  doc.setTextColor(255, 255, 255)
+  doc.text('Abdul-Hakeem & Soliha', W / 2, 34, { align: 'center' })
+
+
+  // ── Divider ──
+  doc.setDrawColor(255, 255, 255, 0.15)
+  doc.setLineWidth(0.15)
+  doc.line(12, 44, W - 12, 44)
+
+  doc.setFont('times', 'italic')
+  doc.setFontSize(15)
+  doc.setTextColor(255, 255, 255)
+  doc.text(form.name || 'Valued Guest', W / 2, 59, { align: 'center' })
+
+  // ── Details row ──
+  const detailsY = 70
+  const cols = [
+    { label: 'DATE', value: 'June 06, 2026' },
+    { label: 'GUESTS', value: `${form.guests} ${parseInt(form.guests) === 1 ? 'Guest' : 'Guests'}` },
+    { label: 'MEAL', value: form.meal ? form.meal.split(' ')[0] + (form.meal.split(' ')[1] ? ' ' + form.meal.split(' ')[1] : '') : 'TBC' },
+    { label: 'VENUE', value: 'Ede Grammar School' },
+  ]
+
+  const colW = (W - 24) / cols.length
+  cols.forEach((col, i) => {
+    const x = 12 + colW * i + colW / 2
+    doc.setFont('helvetica', 'normal')
+    doc.setFontSize(5.5)
+    doc.setTextColor(192, 37, 125)
+    doc.setCharSpace(1.5)
+    doc.text(col.label, x, detailsY, { align: 'center' })
+    doc.setCharSpace(0)
+
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(7.5)
+    doc.setTextColor(255, 255, 255)
+    doc.text(col.value, x, detailsY + 6, { align: 'center' })
+  })
+
+  // ── Vertical separators between cols ──
+  doc.setDrawColor(192, 37, 125, 0.3)
+  doc.setLineWidth(0.15)
+  for (let i = 1; i < cols.length; i++) {
+    const x = 12 + colW * i
+    doc.line(x, detailsY - 4, x, detailsY + 8)
+  }
+
+  // ── Bottom divider ──
+  doc.setDrawColor(255, 255, 255, 0.1)
+  doc.setLineWidth(0.15)
+  doc.line(12, 82, W - 12, 82)
+
+  // ── Footer ──
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(5.5)
+  doc.setTextColor(255, 255, 255, 0.25)
+  centeredText('Please present this card at the entrance on the day of the event', 89, 1)
+
+  // ── Attendance status badge ──
+  if (form.attendance === 'yes') {
+    doc.setFillColor(192, 37, 125)
+    doc.roundedRect(W / 2 - 14, 93, 28, 6, 1, 1, 'F')
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(5.5)
+    doc.setTextColor(255, 255, 255)
+    centeredText('CONFIRMED', 97.2, 1.5)  // ✅ uses helper
+  }
+
+  doc.save(`${form.name.replace(/\s+/g, '_') || 'Guest'}_Invitation.pdf`)
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function RSVP() {
   const ref = useRef<HTMLDivElement>(null)
   const [form, setForm] = useState<FormData>({
@@ -20,6 +160,9 @@ export default function RSVP() {
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  // Track individual results for user feedback
+  const [emailSent, setEmailSent] = useState<boolean | null>(null)
+  const [cardDownloaded, setCardDownloaded] = useState<boolean | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,20 +185,39 @@ export default function RSVP() {
     }
     setErrorMsg('')
     setStatus('loading')
+    setEmailSent(null)
+    setCardDownloaded(null)
 
-    try {
-      const res = await fetch('/api/rsvp', {
+    // ── Run both in parallel — each fails independently ──
+    const [emailResult, cardResult] = await Promise.allSettled([
+      // 1. Send email
+      fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
-      })
-      if (!res.ok) throw new Error('Failed to submit')
+      }).then(res => { if (!res.ok) throw new Error('Email failed') }),
+
+      // 2. Download IV card
+      downloadIVCard(form),
+    ])
+
+    const emailOk = emailResult.status === 'fulfilled'
+    const cardOk = cardResult.status === 'fulfilled'
+
+    setEmailSent(emailOk)
+    setCardDownloaded(cardOk)
+
+    if (emailOk || cardOk) {
+      // At least one succeeded — show success
       setStatus('success')
       setTimeout(() => {
         setForm({ name: '', email: '', guests: '1', attendance: '', meal: '', song: '', message: '' })
         setStatus('idle')
-      }, 6000)
-    } catch {
+        setEmailSent(null)
+        setCardDownloaded(null)
+      }, 8000)
+    } else {
+      // Both failed
       setStatus('error')
       setErrorMsg('Something went wrong. Please try again.')
       setTimeout(() => setStatus('idle'), 4000)
@@ -93,9 +255,21 @@ export default function RSVP() {
                 </svg>
               </div>
               <h3 className="font-display text-3xl text-white mb-3">Thank You!</h3>
-              <p className="font-serif text-white/50 text-lg italic">
-                Your RSVP is confirmed. Check your email for details!
+              <p className="font-serif text-white/50 text-lg italic mb-6">
+                We can&apos;t wait to celebrate with you.
               </p>
+
+              {/* ── Individual status feedback ── */}
+              <div className="flex flex-col items-center gap-2 text-xs font-sans tracking-wide">
+                <div className={`flex items-center gap-2 ${emailSent ? 'text-emerald-400' : 'text-red-400/70'}`}>
+                  <span>{emailSent ? '✓' : '✗'}</span>
+                  <span>{emailSent ? 'Confirmation email sent' : 'Email could not be sent — check your inbox later'}</span>
+                </div>
+                <div className={`flex items-center gap-2 ${cardDownloaded ? 'text-emerald-400' : 'text-red-400/70'}`}>
+                  <span>{cardDownloaded ? '✓' : '✗'}</span>
+                  <span>{cardDownloaded ? 'Invitation card downloaded' : 'Card download failed — please reload and try again'}</span>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="space-y-6 sm:space-y-8">
@@ -151,11 +325,18 @@ export default function RSVP() {
                   <label className="block font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
                     Number of Guests
                   </label>
-                  <select name="guests" value={form.guests} onChange={handleChange}
-                    className="gold-input w-full bg-navy-900/60 border border-white/10 px-4 py-3
-                      font-serif text-white/80 transition-all duration-300 appearance-none">
+                  <select
+                    name="guests"
+                    value={form.guests}
+                    onChange={handleChange}
+                    style={{ background: '#020B18' }}
+                    className="gold-input w-full border border-white/10 px-4 py-3
+    font-serif text-white/80 transition-all duration-300 appearance-none"
+                  >
                     {['1', '2', '3', '4'].map(n => (
-                      <option key={n} value={n}>{n} {n === '1' ? 'Guest' : 'Guests'}</option>
+                      <option key={n} value={n} style={{ background: '#020B18' }}>
+                        {n} {n === '1' ? 'Guest' : 'Guests'}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -163,11 +344,18 @@ export default function RSVP() {
                   <label className="block font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-2">
                     Meal Preference
                   </label>
-                  <select name="meal" value={form.meal} onChange={handleChange}
-                    className="gold-input w-full bg-navy-900/60 border border-white/10 px-4 py-3
-                      font-serif text-white/70 transition-all duration-300 appearance-none">
-                    <option value="">Select a meal</option>
-                    {meals.map(m => <option key={m} value={m}>{m}</option>)}
+                  <select
+                    name="meal"
+                    value={form.meal}
+                    onChange={handleChange}
+                    style={{ background: '#020B18' }}
+                    className="gold-input w-full border border-white/10 px-4 py-3
+    font-serif text-white/70 transition-all duration-300 appearance-none"
+                  >
+                    <option value="" style={{ background: '#020B18' }}>Select a meal</option>
+                    {meals.map(m => (
+                      <option key={m} value={m} style={{ background: '#020B18' }}>{m}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -213,12 +401,12 @@ export default function RSVP() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Sending RSVP...
+                      Sending RSVP & Downloading Card...
                     </span>
-                  ) : status === 'error' ? 'Try Again' : 'Send My RSVP'}
+                  ) : status === 'error' ? 'Try Again' : 'Send RSVP & Download Invitation'}
                 </button>
                 <p className="text-center font-sans text-[10px] tracking-wide text-white/20 mt-3 uppercase">
-                  You&apos;ll receive a confirmation email shortly
+                  Your invitation card will download automatically
                 </p>
               </div>
             </div>
@@ -228,6 +416,8 @@ export default function RSVP() {
     </section>
   )
 }
+
+
 
 // 'use client'
 // import { useState, useEffect, useRef } from 'react'
