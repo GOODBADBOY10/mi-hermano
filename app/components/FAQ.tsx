@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "When is the RSVP deadline?",
-    a: "Please RSVP no later than June 20, 2026 so we can give our caterers and venue the final headcount. Late RSVPs may not be accommodated.",
+    a: "Please RSVP no later than May 20, 2026 so we can give our caterers and venue the final headcount. Late RSVPs may not be accommodated.",
   },
 ]
 

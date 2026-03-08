@@ -79,7 +79,7 @@ async function sendConfirmationEmail(data: {
                     Abdul-Hakeem &amp; Soliha
                   </h1>
                   <p style="margin:12px 0 0;font-family:Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);">
-                    June 06, 2026
+                    Saturday 30th May, 2026
                   </p>
                 </td>
               </tr>
@@ -163,7 +163,7 @@ async function sendConfirmationEmail(data: {
               <tr>
                 <td align="center" style="padding:24px 40px;border-top:1px solid rgba(212,168,67,0.15);">
                   <p style="margin:0;font-family:Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);">
-                    June 06, 2026 &nbsp;&middot;&nbsp; Osun, Nigeria
+                    Saturday 30th May, 2026 &nbsp;&middot;&nbsp; Osun, Nigeria
                   </p>
                 </td>
               </tr>

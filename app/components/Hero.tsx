@@ -137,7 +137,7 @@ export default function Hero() {
         >
           <span className="h-px w-8 sm:w-12 bg-[#c0257d]/40" />
           <p className="font-sans text-[10px] sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/50">
-            June 06, 2026 &middot; Osun, Nigeria
+            Saturday 30th May, 2026 &middot; Osun, Nigeria
           </p>
           <span className="h-px w-8 sm:w-12 bg-[#c0257d]/40" />
         </div>

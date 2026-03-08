@@ -98,7 +98,7 @@ async function downloadIVCard(form: FormData) {
   // ── Details row ──
   const detailsY = 70
   const cols = [
-    { label: 'DATE', value: 'June 06, 2026' },
+    { label: 'DATE', value: 'Saturday 30th May, 2026' },
     { label: 'GUESTS', value: `${form.guests} ${parseInt(form.guests) === 1 ? 'Guest' : 'Guests'}` },
     { label: 'MEAL', value: form.meal ? form.meal.split(' ')[0] + (form.meal.split(' ')[1] ? ' ' + form.meal.split(' ')[1] : '') : 'TBC' },
     { label: 'VENUE', value: 'Ede Grammar School' },
@@ -240,7 +240,7 @@ export default function RSVP() {
             <span className="gold-shimmer">RSVP</span>
           </h2>
           <p className="font-serif text-white/40 italic text-base sm:text-lg">
-            Kindly respond by May 26, 2026
+            Kindly respond by May 20, 2026
           </p>
         </div>
 
